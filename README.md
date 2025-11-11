@@ -4,4 +4,4 @@
 <br>
 <br> 
 <p>This application runs on port 9081</p>
-<a href="http://localhost:9081">Here is the Link</a>
+<a href="http://localhost:9081" target="_blank">Here is the Link</a>
