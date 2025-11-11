@@ -1,4 +1,4 @@
-package foo.bar;
+package dev.tafoya.springtest;
 
 import org.springframework.stereotype.Component;
 
