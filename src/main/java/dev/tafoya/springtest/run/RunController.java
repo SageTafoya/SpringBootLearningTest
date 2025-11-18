@@ -42,22 +42,28 @@ public class RunController
         }
         return run.get();
     }
+
+
     //create = post
     @ResponseStatus(HttpStatus.CREATED) //Notify sender something happened
     @PostMapping("")
     void create(@RequestBody Run run){
         runRepository.create(run);
     }
+
+
     //update = set
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    @PostMapping("/{id}")
+    @PutMapping("/{id}")
     void update(@RequestBody Run run, @PathVariable Integer id)
     {
         runRepository.update(run, id);
     }
+
+
     //delete = delete
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    @PutMapping("/{id}")
+    @DeleteMapping("/{id}")
     void delete(@PathVariable Integer id)
     {
         runRepository.delete(id);
