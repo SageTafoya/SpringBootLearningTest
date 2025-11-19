@@ -1,0 +1,23 @@
+
+###Find All Runs
+
+GET http://localhost:9081/api/runs
+
+###Find Run by ID
+GET http://localhost:9081/api/runs/2
+
+### Create New Run
+POST http://localhost:9081/api/runs
+Content-Type: application/json
+
+{
+  "id": 11,
+  "title": "Alaska Run",
+  "startedOn": "2025-11-15T02:09:59.4495731",
+  "completedOn": "2025-11-15T03:09:59.4495731",
+  "miles": 5,
+  "location": "OUTDOOR"
+}
+
+
+
