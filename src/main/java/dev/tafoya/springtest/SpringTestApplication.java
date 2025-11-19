@@ -2,6 +2,7 @@ package dev.tafoya.springtest;
 
 import dev.tafoya.springtest.run.Location;
 import dev.tafoya.springtest.run.Run;
+import dev.tafoya.springtest.run.RunRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
@@ -27,10 +28,11 @@ public class SpringTestApplication {
     }
 
     @Bean
-    CommandLineRunner runner() {
+    CommandLineRunner runner(RunRepository runRepository) {
         return args ->{
-            Run run = new Run( 3456, "England Run", LocalDateTime.now(), LocalDateTime.now().plus(1, ChronoUnit.HOURS), 5, Location.OUTDOOR);
-            log.info("RUN:" +run.toString());
+            Run run = new Run( 1, "England Run", LocalDateTime.now(), LocalDateTime.now().plus(1, ChronoUnit.HOURS), 5, Location.OUTDOOR);
+            runRepository.create(run);
+//            log.info("RUN:" +run.toString());
         };
     }
 }
