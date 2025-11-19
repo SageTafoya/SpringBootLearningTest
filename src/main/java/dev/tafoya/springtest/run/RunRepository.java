@@ -20,12 +20,13 @@ public class RunRepository {
     //may or may not return a non null value
     Optional<Run> findById(Integer id){
         return  runs.stream()
-                .filter(run -> run.id() == id)
+                .filter(run -> run.id().equals(id))
                 .findFirst();
     }
 
     //creating a run
-    void create(Run run){
+    void create(Run run)
+    {
         runs.add(run);
     }
 

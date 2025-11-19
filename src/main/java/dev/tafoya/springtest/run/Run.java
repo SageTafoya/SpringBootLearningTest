@@ -1,17 +1,27 @@
 package dev.tafoya.springtest.run;
 
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Positive;
+
 import java.time.LocalDateTime;
 
 //run record where we can create different instances of
 public record Run
 (
     Integer id,
-    String title,
+    @NotEmpty String title,
     LocalDateTime startedOn,
     LocalDateTime completedOn,
-    Integer miles,
+    @Positive Integer miles,
     Location location
-){}
+)
+{
+    public Run {
+        if (!completedOn.isAfter(startedOn)) {
+            throw new IllegalArgumentException("completion time is before started time");
+        }
+    }
+}
 
 //public class Run
 //{
