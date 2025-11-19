@@ -1,6 +1,7 @@
 package dev.tafoya.springtest.run;
 
 import jakarta.validation.Valid;
+import org.springframework.boot.autoconfigure.graphql.GraphQlProperties;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -29,8 +30,26 @@ public class RunController
         return runRepository.findAll();
     }
 
+    @ResponseStatus(HttpStatus.CREATED)
+    @PostMapping("")
+    void create(@Valid @RequestBody Run run)
+    {
+        runRepository.create(run);
+    }
 
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @PutMapping("/{id}")
+    void update(@Valid @RequestBody Run run, @PathVariable Integer id)
+    {
+        runRepository.update(run, id);
+    }
 
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @DeleteMapping("/{id}")
+    void delete(@PathVariable Integer id)
+    {
+        runRepository.delete(id);
+    }
     //
     //    @GetMapping("/{id}")
     //    Run findById(@PathVariable Integer id){
