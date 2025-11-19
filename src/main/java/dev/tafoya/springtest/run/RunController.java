@@ -29,41 +29,48 @@ public class RunController
         return runRepository.findAll();
     }
 
-    @GetMapping("/{id}")
-    Run findById(@PathVariable Integer id){
-
-        Optional<Run> run = runRepository.findById(id);
-
-        if(run.isEmpty()){
-            throw new RunNotFoundException();
-        }
-        return run.get();
-    }
 
 
-    //create = post
-    @ResponseStatus(HttpStatus.CREATED) //Notify sender something happened
-    @PostMapping("")
-    void create(@Valid @RequestBody Run run){
-        runRepository.create(run);
-    }
+    //
+    //    @GetMapping("/{id}")
+    //    Run findById(@PathVariable Integer id){
+    //
+    //        Optional<Run> run = runRepository.findById(id);
+    //
+    //        if(run.isEmpty()){
+    //            throw new RunNotFoundException();
+    //        }
+    //        return run.get();
+    //    }
+    //
+    //
+    //    //create = post
+    //    @ResponseStatus(HttpStatus.CREATED) //Notify sender something happened
+    //    @PostMapping("")
+    //    void create(@Valid @RequestBody Run run){
+    //        runRepository.create(run);
+    //    }
+    //
+    //
+    //    //update = set
+    //    @ResponseStatus(HttpStatus.NO_CONTENT)
+    //    @PutMapping("/{id}")
+    //    void update(@RequestBody Run run, @PathVariable Integer id)
+    //    {
+    //        runRepository.update(run, id);
+    //    }
+    //
+    //
+    //    //delete = delete
+    //    @ResponseStatus(HttpStatus.NO_CONTENT)
+    //    @DeleteMapping("/{id}")
+    //    void delete(@PathVariable Integer id)
+    //    {
+    //        runRepository.delete(id);
+    //    }
 
 
-    //update = set
-    @ResponseStatus(HttpStatus.NO_CONTENT)
-    @PutMapping("/{id}")
-    void update(@RequestBody Run run, @PathVariable Integer id)
-    {
-        runRepository.update(run, id);
-    }
 
 
-    //delete = delete
-    @ResponseStatus(HttpStatus.NO_CONTENT)
-    @DeleteMapping("/{id}")
-    void delete(@PathVariable Integer id)
-    {
-        runRepository.delete(id);
-    }
 }
 
